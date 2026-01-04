@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# MiniShop 🛒
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MiniShop es una aplicación de carrito de compras moderna y reactiva construida con **React**, **TypeScript** y **Tailwind CSS**. Este proyecto demuestra un flujo de compra simple con gestión de estado global, validación de stock y una interfaz de usuario limpia y atractiva.
 
-Currently, two official plugins are available:
+## 🚀 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Catálogo de Productos**: Vista dinámica de productos disponibles con información de stock.
+- **Gestión del Carrito**:
+  - Agregar productos al carrito (valida disponibilidad de stock).
+  - Visualizar resumen de compra en tiempo real.
+  - Aumentar/Disminuir cantidades o eliminar items.
+- **Cálculos Automáticos**: Total del pedido y cantidad de items actualizados al instante.
+- **Gestión de Estado**: Uso de `Context API` para manejar el estado global del carrito.
+- **Diseño Responsivo**: Interfaz adaptada a dispositivos móviles y de escritorio gracias a Tailwind CSS.
+- **Feedback Visual**: Botones deshabilitados cuando no hay stock, indicadores de cantidad en el icono del carrito, etc.
 
-## React Compiler
+## 🛠️ Tecnologías Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 18** - Biblioteca para construir interfaces de usuario.
+- **TypeScript** - Tipado estático para un código más robusto y mantenible.
+- **Tailwind CSS** - Framework de utilidades CSS para un diseño rápido y flexible.
+- **Vite** - Entorno de desarrollo ultrarrápido.
 
-## Expanding the ESLint configuration
+## 📦 Instalación y Uso
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Sigue estos pasos para correr el proyecto localmente:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. **Clonar el repositorio**:
+   ```bash
+   git clone https://github.com/sebastian-nc/mini-shop.git
+   cd mini-shop
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. **Instalar dependencias**:
+   Usando npm:
+   ```bash
+   npm install
+   ```
+   O usando pnpm (recomendado):
+   ```bash
+   pnpm install
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+3. **Ejecutar el servidor de desarrollo**:
+   ```bash
+   npm run dev
+   # o
+   pnpm dev
+   ```
+
+4. **Abrir en el navegador**:
+   Visita `http://localhost:5173` para ver la aplicación.
+
+## 📂 Estructura del Proyecto
+
+```
+src/
+├── components/          # Componentes de UI (Catalogo, CarritoDetalle, Navbar, etc.)
+├── context/             # Contexto de React (CarritoContext)
+├── hooks/               # Custom Hooks (useCarrito)
+├── types/               # Definiciones de tipos TypeScript
+├── App.tsx              # Componente principal
+└── main.tsx             # Punto de entrada
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📝 Licencia
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Este proyecto es para fines educativos y personales.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+Hecho con ❤️ por [Sebastian](https://github.com/sebastian-nc)
