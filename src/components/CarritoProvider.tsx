@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { CarritoContext, type ItemCarrito } from "../context/CarritoContext"
+import { CarritoContext } from "../context/CarritoContext"
 import { Layout } from "../layout";
 import { Navbar } from "./Navbar";
-import type { Producto } from "./Catalogo";
+import type { Producto, ItemCarrito } from "../types";
 
 export function CarritoProvider({ children }: { children: React.ReactNode }) {
     const [carrito, setCarrito] = useState<ItemCarrito[]>([]);

@@ -1,4 +1,4 @@
-import type { ItemCarrito } from "../context/CarritoContext";
+import type { ItemCarrito } from "../types";
 
 interface Props {
     id: string;
